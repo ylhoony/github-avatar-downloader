@@ -17,6 +17,11 @@ var mkdirSync = function () {
   }
 }();
 
+if (!repoOwner || !repoName) {
+  console.log('input argument');
+  return false;
+}
+
 function getRepoContributors(repoOwner, repoName, cb) {
   var requestURL = 'https://'+ GITHUB_USER + ':' + GITHUB_TOKEN + '@api.github.com/repos/' + repoOwner + '/' + repoName + '/contributors';
   var requestOptions = {
